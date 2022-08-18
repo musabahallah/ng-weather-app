@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="upper-data">
+    <img src="../../../assets/hot.jpg" alt="" *ngIf="14 > 15" />
+    <img src="../../../assets/cold.jpg" alt="" *ngIf="14 <= 15" />
+
+    <div class="weather-data">
+      <div class="location">Cairo</div>
+      <div class="temperature">{{ 14.4 | number: "1.0-0" }}°c</div>
+    </div>
+  </div>
+
+  <div class="lower-data">
+    <div class="more-info-label">More Information</div>
+    <div class="more-info-container">
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../../../assets/min.jpg" alt="" />
+          <span>Min</span>
+        </div>
+        <div class="info-block-value">10°c</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../../../assets/max.jpg" alt="" />
+          <span>Max</span>
+        </div>
+        <div class="info-block-value">20°c</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../../../assets/humidity.jpg" alt="" />
+          <span>Humidity</span>
+        </div>
+        <div class="info-block-value">77%</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../../../assets/wind.png" alt="" />
+          <span>Wind</span>
+        </div>
+        <div class="info-block-value">11 km/h</div>
+      </div>
+    </div>
+  </div>
+</div>
