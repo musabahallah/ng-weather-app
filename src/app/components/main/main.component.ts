@@ -13,7 +13,6 @@ export class MainComponent implements OnInit {
   weatherData?: weatherData;
   ngOnInit(): void {
     this.getWeatherData(this.cityName);
-    this.cityName = '';
   }
 
   onSubmit() {
