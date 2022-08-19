@@ -9,8 +9,11 @@ import { WeatherService } from 'src/app/services/weather.service';
 })
 export class MainComponent implements OnInit {
   constructor(private weatherService: WeatherService) {}
+
   cityName: string = 'cairo';
+
   weatherData?: weatherData;
+
   ngOnInit(): void {
     this.getWeatherData(this.cityName);
   }

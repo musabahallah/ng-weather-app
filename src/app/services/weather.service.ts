@@ -10,8 +10,6 @@ import { weatherData } from '../models/weather.model';
 export class WeatherService {
   constructor(private http: HttpClient) {}
 
-  getData() {}
-
   getWeatherData(cityName: string) {
     return this.http.get<weatherData>(
       `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${environment.API_KEY}`
