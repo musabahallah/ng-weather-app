@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { weatherData } from 'src/app/models/weather.model';
+import { WeatherDataApi } from 'src/app/models/weather-data-api.model';
 import { WeatherService } from 'src/app/services/weather.service';
+
+import { faSun } from '@fortawesome/free-solid-svg-icons';
+import { faMoon } from '@fortawesome/free-solid-svg-icons';
+import { faDroplet } from '@fortawesome/free-solid-svg-icons';
+import { faWind } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-main',
@@ -10,9 +15,14 @@ import { WeatherService } from 'src/app/services/weather.service';
 export class MainComponent implements OnInit {
   constructor(private weatherService: WeatherService) {}
 
-  cityName: string = 'cairo';
+  faSun = faSun;
+  faMoon = faMoon;
+  faDroplet = faDroplet;
+  faWind = faWind;
 
-  weatherData?: weatherData;
+  cityName: string = 'Makkah';
+
+  weatherData?: WeatherDataApi;
 
   ngOnInit(): void {
     this.getWeatherData(this.cityName);
@@ -23,10 +33,11 @@ export class MainComponent implements OnInit {
     this.cityName = '';
   }
 
-  private getWeatherData(cityName: string) {
+  getWeatherData(cityName: string) {
     this.weatherService.getWeatherData(cityName).subscribe({
       next: (res) => {
         this.weatherData = res;
+        console.log(res);
       },
     });
   }
