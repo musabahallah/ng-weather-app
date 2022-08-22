@@ -6,6 +6,7 @@ import { faSun } from '@fortawesome/free-solid-svg-icons';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import { faDroplet } from '@fortawesome/free-solid-svg-icons';
 import { faWind } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-main',
@@ -19,10 +20,14 @@ export class MainComponent implements OnInit {
   faMoon = faMoon;
   faDroplet = faDroplet;
   faWind = faWind;
+  faMagnifyingGlass = faMagnifyingGlass;
 
   cityName: string = 'Makkah';
 
+  test = 15;
+
   weatherData?: WeatherDataApi;
+  temp: number = 0;
 
   ngOnInit(): void {
     this.getWeatherData(this.cityName);
@@ -37,7 +42,7 @@ export class MainComponent implements OnInit {
     this.weatherService.getWeatherData(cityName).subscribe({
       next: (res) => {
         this.weatherData = res;
-        console.log(res);
+        this.temp = res.current_observation.condition.temperature;
       },
     });
   }

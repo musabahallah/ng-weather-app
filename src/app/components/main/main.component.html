@@ -6,13 +6,20 @@
       name="city"
       [(ngModel)]="cityName"
     />
-    <button class="btn btn-primary" (click)="onSubmit()">Search</button>
+
+    <!-- <button class="btn btn-primary">
+      <fa-icon
+        [icon]="faMagnifyingGlass"
+        [styles]="{ color: '#ffcccc' }"
+      ></fa-icon>
+    </button> -->
   </form>
 </div>
 <div class="container">
   <div class="upper-data">
-    <img src="../../../assets/cold.jpg" *ngIf="14 <= 15" />
-    <img src="../../../assets/hot.jpg" *ngIf="14 > 15" />
+    <img src="../../../assets/cold.jpg" *ngIf="temp <= 15" />
+    <img src="../../../assets/mid-temp.jpg" *ngIf="temp > 15 && temp < 25" />
+    <img src="../../../assets/hot.jpg" *ngIf="temp >= 25" />
 
     <div class="weather-data">
       <div class="location">{{ weatherData?.location?.city }}</div>
@@ -21,13 +28,13 @@
         {{
           weatherData?.current_observation?.condition?.temperature
             | number: "1.0-0"
-        }}°c
+        }}
+        <sup>°c</sup>
       </div>
     </div>
   </div>
 
   <div class="lower-data">
-    <div class="more-info-label">More Information</div>
     <div class="more-info-container">
       <div class="info-block">
         <div class="info-block-label">
@@ -37,7 +44,7 @@
             [icon]="faSun"
             [styles]="{ color: '#FCE570' }"
           ></fa-icon>
-          <span>Sunrise</span>
+          <!-- <span>Sunrise</span> -->
         </div>
         <div class="info-block-value">
           {{ weatherData?.current_observation?.astronomy?.sunrise }}
@@ -50,9 +57,9 @@
           <fa-icon
             class="fa-styles"
             [icon]="faMoon"
-            [styles]="{ color: '#ffcccc' }"
+            [styles]="{ color: '#F7EAC6' }"
           ></fa-icon>
-          <span>Sunset</span>
+          <!-- <span>Sunset</span> -->
         </div>
         <div class="info-block-value">
           {{ weatherData?.current_observation?.astronomy?.sunset }}
@@ -65,9 +72,9 @@
           <fa-icon
             class="fa-styles"
             [icon]="faDroplet"
-            [styles]="{ color: '#ffcccc' }"
+            [styles]="{ color: '#d4f1f9' }"
           ></fa-icon>
-          <span>Humidity</span>
+          <!-- <span>Humidity</span> -->
         </div>
         <div class="info-block-value">
           {{ weatherData?.current_observation?.atmosphere?.humidity }}%
@@ -82,7 +89,8 @@
             [icon]="faWind"
             [styles]="{ color: '#ffcccc' }"
           ></fa-icon>
-          <span>Wind</span>
+          <i class="fa-solid fa-star"></i>
+          <!-- <span>Wind</span> -->
         </div>
         <div class="info-block-value">
           {{ weatherData?.current_observation?.wind?.speed }} km/h
