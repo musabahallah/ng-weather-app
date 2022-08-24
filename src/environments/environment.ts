@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+
   BASE_URL: 'https://yahoo-weather5.p.rapidapi.com/weather?',
   XRapidAPIHost: 'X-RapidAPI-Host',
   XRapidAPIHostValue: 'yahoo-weather5.p.rapidapi.com',
