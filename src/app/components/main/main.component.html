@@ -18,17 +18,16 @@
 <div class="container">
   <div class="upper-data">
     <img src="../../../assets/cold.jpg" *ngIf="temp <= 15" />
-    <img src="../../../assets/mid-temp.jpg" *ngIf="temp > 15 && temp < 25" />
-    <img src="../../../assets/hot.jpg" *ngIf="temp >= 25" />
+    <img src="../../../assets/mid-temp.jpg" *ngIf="temp > 15 && temp < 30" />
+    <img src="../../../assets/hot.jpg" *ngIf="temp >= 30" />
 
     <div class="weather-data">
-      <div class="location">{{ weatherData?.location?.city }}</div>
-      <div class="location-country">{{ weatherData?.location?.country }}</div>
+      <div class="location">{{ openWeatherData?.name }}</div>
+      <div class="location-country">
+        {{ openWeatherData?.sys?.country }}
+      </div>
       <div class="temperature">
-        {{
-          weatherData?.current_observation?.condition?.temperature
-            | number: "1.0-0"
-        }}
+        {{ openWeatherData?.main?.temp | number: "1.0-0" }}
         <sup>°c</sup>
       </div>
     </div>
@@ -38,16 +37,15 @@
     <div class="more-info-container">
       <div class="info-block">
         <div class="info-block-label">
-          <!-- <img src="../../../assets/sunrise.png" alt="" /> -->
           <fa-icon
             class="fa-styles"
-            [icon]="faSun"
-            [styles]="{ color: '#FCE570' }"
+            [icon]="faTemperatureLow"
+            [styles]="{ color: '#F7EAC6' }"
           ></fa-icon>
           <!-- <span>Sunrise</span> -->
         </div>
         <div class="info-block-value">
-          {{ weatherData?.current_observation?.astronomy?.sunrise }}
+          {{ openWeatherData?.main?.temp_min | number: "1.0-0" }} <sup>°c</sup>
         </div>
       </div>
 
@@ -56,13 +54,13 @@
           <!-- <img src="../../../assets/sunset.png" alt="" /> -->
           <fa-icon
             class="fa-styles"
-            [icon]="faMoon"
+            [icon]="faTemperatureHigh"
             [styles]="{ color: '#F7EAC6' }"
           ></fa-icon>
-          <!-- <span>Sunset</span> -->
+          <!-- <span>Max temp</span> -->
         </div>
         <div class="info-block-value">
-          {{ weatherData?.current_observation?.astronomy?.sunset }}
+          {{ openWeatherData?.main?.temp_max | number: "1.0-0" }} <sup>°c</sup>
         </div>
       </div>
 
@@ -77,7 +75,7 @@
           <!-- <span>Humidity</span> -->
         </div>
         <div class="info-block-value">
-          {{ weatherData?.current_observation?.atmosphere?.humidity }}%
+          {{ openWeatherData?.main?.humidity }}%
         </div>
       </div>
 
@@ -93,7 +91,7 @@
           <!-- <span>Wind</span> -->
         </div>
         <div class="info-block-value">
-          {{ weatherData?.current_observation?.wind?.speed }} km/h
+          {{ openWeatherData?.wind?.speed }} km/h
         </div>
       </div>
     </div>

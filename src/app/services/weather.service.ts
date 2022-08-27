@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { WeatherDataApi } from '../models/weather-data-api.model';
+import { OpenWeatherData } from '../models/open-weather-data.model';
 
 @Injectable({
   providedIn: 'root',
@@ -10,22 +10,12 @@ import { WeatherDataApi } from '../models/weather-data-api.model';
 export class WeatherService {
   constructor(private http: HttpClient) {}
 
-  // getWeatherData(cityName: string) {
-  //   return this.http.get<weatherData>(
-  //     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${environment.API_KEY}`
-  //   );
-  // }
-
-  getWeatherData(cityName: string): Observable<WeatherDataApi> {
-    return this.http.get<WeatherDataApi>(environment.BASE_URL, {
-      headers: new HttpHeaders()
-        .set(environment.XRapidAPIHost, environment.XRapidAPIHostValue)
-        .set(environment.XRapidAPIKey, environment.XRapidAPIKeyValue),
-
+  getLocation(cityName: string): Observable<OpenWeatherData> {
+    return this.http.get<OpenWeatherData>(environment.BASE_URL, {
       params: new HttpParams()
-        .set('location', cityName)
-        .set('u', 'c')
-        .set('format', 'json'),
+        .set('q', cityName)
+        .set('appid', environment.API_KEY)
+        .set('units', 'metric'),
     });
   }
 }
