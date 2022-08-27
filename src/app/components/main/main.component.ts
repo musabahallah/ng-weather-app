@@ -34,6 +34,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOpenWeatherData(this.cityName);
+    this.cityName = '';
   }
 
   onSubmit() {
