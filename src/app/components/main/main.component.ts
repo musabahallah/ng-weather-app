@@ -22,7 +22,7 @@ export class MainComponent implements OnInit {
   faWind = faWind;
   faMagnifyingGlass = faMagnifyingGlass;
 
-  cityName: string = 'cairo';
+  cityName: string = 'Mecca';
 
   test = 15;
 
