@@ -37,7 +37,6 @@
             [icon]="faTemperatureLow"
             [styles]="{ color: '#F7EAC6' }"
           ></fa-icon>
-          <!-- <span>Sunrise</span> -->
         </div>
         <div class="info-block-value">
           {{ openWeatherData?.main?.temp_min | number: "1.0-0" }} <sup>°c</sup>
@@ -52,7 +51,6 @@
             [icon]="faTemperatureHigh"
             [styles]="{ color: '#F7EAC6' }"
           ></fa-icon>
-          <!-- <span>Max temp</span> -->
         </div>
         <div class="info-block-value">
           {{ openWeatherData?.main?.temp_max | number: "1.0-0" }} <sup>°c</sup>
@@ -67,7 +65,6 @@
             [icon]="faDroplet"
             [styles]="{ color: '#d4f1f9' }"
           ></fa-icon>
-          <!-- <span>Humidity</span> -->
         </div>
         <div class="info-block-value">
           {{ openWeatherData?.main?.humidity }}%
@@ -82,8 +79,6 @@
             [icon]="faWind"
             [styles]="{ color: '#ffcccc' }"
           ></fa-icon>
-
-          <!-- <span>Wind</span> -->
         </div>
         <div class="info-block-value">
           {{ openWeatherData?.wind?.speed }} km/h

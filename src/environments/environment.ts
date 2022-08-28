@@ -7,7 +7,7 @@ export const environment = {
 
   BASE_URL: 'https://api.openweathermap.org/data/2.5/weather?',
   // BASE_URL: 'http://api.openweathermap.org/geo/1.0/direct?',
-  API_KEY: 'Your API key From openweathermap.org',
+  API_KEY: 'ef843dd7e1561a59e0ed984801612c11',
 };
 
 /*
