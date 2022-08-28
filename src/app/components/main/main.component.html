@@ -15,7 +15,9 @@
     <img src="../../../assets/hot.jpg" *ngIf="temp >= 30" />
 
     <div class="weather-data">
-      <div class="location">{{ openWeatherData?.name }}</div>
+      <div class="location">
+        {{ name.length > 14 ? (name | slice: 0:14) + "..." : name }}
+      </div>
       <div class="location-country">
         {{ openWeatherData?.sys?.country }}
       </div>

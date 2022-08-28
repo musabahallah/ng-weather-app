@@ -22,12 +22,13 @@ export class MainComponent implements OnInit {
   faWind = faWind;
   faMagnifyingGlass = faMagnifyingGlass;
 
-  cityName: string = 'Mecca';
+  cityName: string = 'london';
 
   test = 15;
 
   openWeatherData?: OpenWeatherData;
   temp: number = 0;
+  name: string = '';
 
   cityLat: number = 0;
   cityLon: number = 0;
@@ -47,6 +48,7 @@ export class MainComponent implements OnInit {
       next: (res) => {
         this.openWeatherData = res;
         this.temp = res.main.temp;
+        this.name = res.name;
       },
     });
   }
